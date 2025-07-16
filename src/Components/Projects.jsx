@@ -11,7 +11,7 @@ const Projects = () => {
       name: "POS Software for Dairy",
       description:
         "A real-time POS system for dairy stores featuring billing, slip printing, inventory tracking, and transaction analytics.",
-      image: pos ,
+      image: pos,
       github: "",
       live: "https://order.teejay26.com/",
     },
@@ -60,8 +60,7 @@ const Projects = () => {
           </div>
           <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed max-w-[600px]">
             Here are some of my recent projects that showcase my skills in
-            fullstack development and modern web
-            technologies.
+            fullstack development and modern web technologies.
           </p>
         </div>
 
@@ -99,31 +98,55 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group/btn flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold hover:bg-pink-600 hover:text-white transition-all duration-300 transform hover:scale-105"
+                    {/* GitHub Button */}
+                    <button
+                      onClick={() =>
+                        project.github && window.open(project.github, "_blank")
+                      }
+                      disabled={!project.github}
+                      className={`group/btn flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform ${
+                        project.github
+                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-pink-600 hover:text-white hover:scale-105"
+                          : "bg-gray-200 dark:bg-gray-600 text-gray-400 cursor-not-allowed"
+                      }`}
+                      title={
+                        project.github
+                          ? "View Code"
+                          : "Source code not available"
+                      }
                     >
                       <FiGithub className="text-lg" />
                       <span>View Code</span>
-                      <span className="group-hover/btn:translate-x-1 duration-300">
-                        <HiArrowNarrowRight className="text-lg" />
-                      </span>
-                    </a>
+                      {project.github && (
+                        <span className="group-hover/btn:translate-x-1 duration-300">
+                          <HiArrowNarrowRight className="text-lg" />
+                        </span>
+                      )}
+                    </button>
 
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group/btn flex items-center justify-center gap-2 px-6 py-3 border-2 border-pink-600 text-pink-600 dark:text-pink-400 rounded-lg font-semibold hover:bg-pink-600 hover:text-white transition-all duration-300 transform hover:scale-105"
+                    {/* Live Demo Button */}
+                    <button
+                      onClick={() =>
+                        project.live && window.open(project.live, "_blank")
+                      }
+                      disabled={!project.live}
+                      className={`group/btn flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 transition-all duration-300 transform ${
+                        project.live
+                          ? "border-pink-600 text-pink-600 dark:text-pink-400 hover:bg-pink-600 hover:text-white hover:scale-105"
+                          : "border-gray-300 text-gray-400 dark:border-gray-500 cursor-not-allowed"
+                      }`}
+                      title={
+                        project.live ? "Live Demo" : "Live demo not available"
+                      }
                     >
                       <FiExternalLink className="text-lg" />
                       <span>Live Demo</span>
-                      <span className="group-hover/btn:translate-x-1 duration-300">
-                        <HiArrowNarrowRight className="text-lg" />
-                      </span>
-                    </a>
+                      {project.live && (
+                        <span className="group-hover/btn:translate-x-1 duration-300">
+                          <HiArrowNarrowRight className="text-lg" />
+                        </span>
+                      )}
+                    </button>
                   </div>
                 </div>
 
