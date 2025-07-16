@@ -12,3 +12,5 @@ export const data=[
 
 
 ]
+
+export const resumeUrl = "https://drive.google.com/file/d/1ZY4BuB4oqx9O5u2WAE3-nVE1sZRw6xWO/preview"
